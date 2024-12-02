@@ -1,0 +1,40 @@
+services:
+  signing-mender:
+    image: signing_mender_hsm
+    container_name: signing_mender_hsm
+    build: .
+    networks:
+      - l-net
+    restart: always
+    volumes:
+      - /tmp:/work
+      - ./run/test/etc/nitrokey/p11nethsm.conf:/etc/nitrokey/p11nethsm.conf:ro
+    env_file:
+      - ./run/test/defaults.env
+      - ./run/test/local.env
+    command: sleep infinity
+
+
+  nethsm-adm:
+    build: ./HSM/
+    container_name: signing_mender_hsm_adm_test
+    command: sleep infinity
+    networks:
+      - l-net
+    depends_on:
+      - nethsm
+
+  nethsm:
+    image: "docker.io/nitrokey/nethsm:testing"
+    container_name: signing_mender_hsm_test
+    ports:
+      - "8443:8443"
+    networks:
+      l-net:
+        aliases:
+          - hsmtest
+
+networks:
+  l-net:
+    name: l-net
+    external: false
