@@ -3,23 +3,19 @@
 # Container Management
 ## create container image locally
 ```
-docker compose -f compose.yml build
+docker compose build
 ```
 
 ## start and stop the service (using test environment)
 ```
-docker compose -f compose-test.yml up -d
-docker compose -f compose-test.yml down
+docker compose up -d
+docker compose down
 ```
 
-## conncet to the openXPKI server
-```
-docker exec -ti issuing_ca_test bash
-```
 
 ## check log files of the container
 ```
-docker compose -f compose-test.yml logs
+docker compose logs
 ```
 
 # HSM
@@ -27,7 +23,7 @@ The test environment contains a virtual NetHSM and a HSM manager containter.
 ## connect to HSM manager
 To connect to the HSM manager containter use
 ```
-docker exec -ti issuing_ca_hsm_adm_test bash
+docker exec -ti signing_mender_hsm_adm_test bash
 ```
 
 ## init HSM
