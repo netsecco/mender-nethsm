@@ -31,7 +31,7 @@ There is a script to init the HSM. This will to the following steps
 * initialize the HSM
 * set admin user password
 * create the namespaces Mender with an NS admin and a NS operator
-* create an EC P384 and an RSA 2048 key
+* create an EC P384 and an RSA 2048 key pair
 
 ### execute the init script
 ```
@@ -70,5 +70,6 @@ The signing container mounts /tmp of the docker host to /work. The signing scrip
 ```
 /usr/local/bin/mender_sign.sh <mender artifact>
 ```
-<mender artifact> is the .mender file without a path
+<mender artifact> is the .mender file without a path.
+
 The script also creates a log file (<mender artifact>.log) and a public key file (<mender artifact>.pubkey.pem)
