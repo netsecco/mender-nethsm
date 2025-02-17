@@ -26,7 +26,7 @@ hsm1() {
 }
 
 hsm1 add-user --role Operator --user-id operator --real-name Operator --passphrase $OPERATOR_PW --namespace $NETHSM_NAMESPACE
-hsm1 generate-key --type EC_P384 --length 384 --mechanism ECDSA_Signature --key-id MenderSignEC384
+hsm1 generate-key --type EC_P256 --length 384 --mechanism ECDSA_Signature --key-id MenderSignEC256
 hsm1 generate-key --type RSA --length 2048 --mechanism RSA_Signature_PKCS1 --key-id MenderSignRSA2048
 
 echo "********************************************"

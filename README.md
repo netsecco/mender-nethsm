@@ -31,7 +31,7 @@ There is a script to init the HSM. This will to the following steps
 * initialize the HSM
 * set admin user password
 * create the namespaces Mender with an NS admin and a NS operator
-* create an EC P384 and an RSA 2048 key pair
+* create an EC P256 and an RSA 2048 key pair
 
 ### execute the init script
 ```
